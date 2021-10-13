@@ -1,0 +1,60 @@
+COMMAND  : 
+pip list - shows global machines pip list downloaded with version
+python -m pip install --upgrade pip updates pip
+-----------------------
+
+1. create virtual environment
+            "name of the env"
+   python -m venv homework_venv
+
+--creates a homework_venv folder with included files including pip(package manager)--
+
+2.Activate virtual machine
+
+ windows: homework_venv/Scripts/activate
+ mac/terminal:  . homework_venv/Scripts/activate or source homework_venv/Scripts/activate
+
+3. Install Flask
+pip install -U Flask
+
+4. create new file run.py 
+inside run.py:
+    from flask import Flask
+    app = Flask(__name__)
+
+@app.route('/)
+def index():
+    return "Hello World
+
+if __name__ == '__main__':
+    app.run()
+-----------------------------
+5. set u env varibles
+env file only live in the exact instance of the terminal.  So use a .env file
+
+export FLASK_ENV=development or set FLASK_ENV=development
+--turns on development mode and debug gets turned on.  Auto reloads the server.--
+
+export FLASK_APP=run.py
+---auto runs the program---
+
+5.2 make a .env folder
+
+FLASK_ENV=development
+FLASK_APP=run.py
+
+pip install python-dotenv 
+
+--This will install a package and that will then read the .env file and set them.
+
+6. create git init and make gitignore folder
+
+git init
+create a new file .gitignore
+
+--put in name of file name , folders to ignore--
+homework_venv/
+__pycache__
+.env
+
+--run the git add and git commit--
