@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Here are my favorites cities that I have visited!</h1>
+<ul>
+    {% for fav in favorites %}
+    <li style="font-size: 20px; font-weight: bold; list-style-type: none;">{{ fav }}</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

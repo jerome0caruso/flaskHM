@@ -58,3 +58,65 @@ __pycache__
 .env
 
 --run the git add and git commit--
+
+7. create module called app , need __init__.py to make a module not just a folder
+
+create app folder and put __init__.py file in it
+
+--in the init instantiate the Flask class and import it in the run.py file--
+from app import app
+--when flask run, it read run.py which reads the init.py file --
+
+--put at the bottom of page after the app instance--
+from app import routes
+--links the routes to the app--
+
+8. create routes.py in app folder
+
+--this will hold all the routes--
+
+from flask import render_template 
+--renders a template from the temp folder,  --
+
+9. create a templates folder
+--this will hold all the html pages that get rendered from routes.py using the render_template feature--
+
+10. create index.html file in the templates folder
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h1>Jerome's favorites page!</h1>
+    <a href="{{ url_for('favorites') }}">Click here to get my favorites</a>
+    {% endblock content %}
+
+    --insert this and it extends from base--
+
+11. Routes with render_template
+                                     
+use return render_template('/location.html')
+-- can also take in **args/**kwargs --
+    --turns data into a dictionary--
+    name = "Jerry"
+    return render_template('index.html', user_name=name)
+--takes this user_name and turns it into string and can be used in index.html like
+<h4>Welcome user {{ user_name }}</h4>   -- {{}} is used for expressions, {% %} statements, {##} for comments
+
+
+12. create base.html
+
+--have this be a block, the main page, it'll be a standard html file with other peices(html files) inhereit from it--
+        you can use {% include 'nav.html' %} to include other html blocks.  Those pages just need the html such as a nav from bootstrap
+        doesn't have to go into the block content (below)
+
+        {% block content %}
+            --When you insert the (line 85) it shows up as if it were here--
+        {% endblock %}
+
+13. keep track of all of the packages needed for clones
+inside of virtual env
+pip freeze > requirements.txt
+
+like a package.json file.  Loads up info.  
+create virtual environment see step #1 and #2
+
+you can do a pip install -r requirements.txt
